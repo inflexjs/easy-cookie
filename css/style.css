@@ -6,37 +6,120 @@
 
 body {
 	font-family: 'Nunito', sans-serif;
-	height: 300vh;
+	font-size: 16px;
 	position: relative;
+	background-color: #fff7e2;
 }
 
-.modal__cookie-bottom {
+.main {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	font-size: 40px;
+	color: #aa7758;
+}
+
+.title {
+	color: #aa7758;
+	margin-bottom: 20px;
+	padding: 0 25px;
+	text-align: center;
+}
+
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	justify-content: center;
+}
+
+.button {
+	background: #ffe6a1;
+
+	box-shadow: 0px 6px 0px #ffd48d;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 25px;
+	color: #aa7758;
+	padding: 4px 35px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+	background: #ffde84;
+	color: #886047;
+	box-shadow: 0px 6px 0px #cca565;
+}
+
+.button--current {
+	background: #ffde84;
+	color: #886047;
+	box-shadow: 0px 6px 0px #cca565;
+}
+
+.modal {
 	position: fixed;
 	display: flex;
 	align-items: center;
-	width: 95%;
-	margin: 0 auto;
 	padding: 10px 25px;
-	left: 50%;
-	bottom: -100px;
-	transform: translate(-50%);
 
 	background: #fff0c6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
-.modal__cookie-bottom-active {
+.cookie-bottom {
+	width: 95%;
+	margin: 0 auto;
+	left: 50%;
+	bottom: -100px;
+	transform: translate(-50%);
+}
+
+.cookie-bottom--active {
 	bottom: 25px;
 	animation-duration: 2s;
-	animation-name: slimeShow;
+	animation-name: slimeShowBottom;
 	animation-timing-function: ease-in-out;
 }
 
-.modal__cookie-bottom-accepted {
+.cookie-bottom--accepted {
 	bottom: -100px;
 	animation-duration: 2s;
-	animation-name: slimeHide;
+	animation-name: slimeHideBottom;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-top {
+	width: 95%;
+	margin: 0 auto;
+	left: 50%;
+	top: -100px;
+	transform: translate(-50%);
+}
+
+.cookie-top--active {
+	top: 25px;
+	animation-duration: 2s;
+	animation-name: slimeShowTop;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-top--accepted {
+	top: -100px;
+	animation-duration: 2s;
+	animation-name: slimeHideTop;
 	animation-timing-function: ease-in-out;
 }
 
@@ -94,7 +177,7 @@ body {
 	}
 }
 
-@keyframes slimeShow {
+@keyframes slimeShowBottom {
 	0% {
 		bottom: -100px;
 	}
@@ -114,7 +197,7 @@ body {
 	}
 }
 
-@keyframes slimeHide {
+@keyframes slimeHideBottom {
 	0% {
 		bottom: 25px;
 	}
@@ -131,6 +214,43 @@ body {
 	}
 }
 
+@keyframes slimeShowTop {
+	0% {
+		top: -100px;
+	}
+
+	70% {
+		top: -100px;
+	}
+
+	80% {
+		top: 30px;
+	}
+	90% {
+		top: 20px;
+	}
+	100% {
+		top: 25px;
+	}
+}
+
+@keyframes slimeHideTop {
+	0% {
+		top: 25px;
+	}
+
+	10% {
+		top: 30px;
+	}
+
+	20% {
+		top: -100px;
+	}
+	100% {
+		top: -100px;
+	}
+}
+
 @media (max-width: 1600px) {
 	.cookie__btn:hover {
 		padding: 4px 35px;
@@ -141,19 +261,31 @@ body {
 }
 
 @media (max-width: 1000px) {
-	.modal__cookie-bottom {
+	.cookie-bottom {
 		width: 100%;
 		flex-direction: column;
 		border-radius: 0;
 		bottom: -150%;
 	}
 
-	.modal__cookie-bottom-active {
+	.cookie-bottom--active {
 		bottom: 0;
-		animation-duration: 3s;
+		animation-duration: 2s;
 	}
 
-	@keyframes slimeShow {
+	.cookie-top {
+		width: 100%;
+		flex-direction: column;
+		border-radius: 0;
+		top: -150%;
+	}
+
+	.cookie-top--active {
+		top: 0;
+		animation-duration: 2s;
+	}
+
+	@keyframes slimeShowBottom {
 		0% {
 			bottom: -100%;
 		}
@@ -173,7 +305,7 @@ body {
 		}
 	}
 
-	@keyframes slimeHide {
+	@keyframes slimeHideBottom {
 		0% {
 			bottom: 0;
 		}
@@ -188,6 +320,44 @@ body {
 
 		100% {
 			bottom: -150%;
+		}
+	}
+
+	@keyframes slimeShowTop {
+		0% {
+			top: -100%;
+		}
+
+		70% {
+			top: -100%;
+		}
+
+		80% {
+			top: 20px;
+		}
+		90% {
+			top: -20px;
+		}
+		100% {
+			top: 0;
+		}
+	}
+
+	@keyframes slimeHideTop {
+		0% {
+			top: 0;
+		}
+
+		10% {
+			top: 10px;
+		}
+
+		60% {
+			top: -150%;
+		}
+
+		100% {
+			top: -150%;
 		}
 	}
 
@@ -206,5 +376,33 @@ body {
 	.cookie__btn {
 		margin-bottom: 20px;
 		margin-top: 25px;
+	}
+}
+
+@media (max-width: 620px) {
+	.buttons {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.right-modal {
+		grid-column-start: 2;
+		grid-column-end: 3;
+	}
+}
+
+@media (max-width: 470px) {
+	.buttons {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.right-modal {
+		grid-column-start: auto;
+		grid-column-end: auto;
+	}
+}
+
+@media (max-width: 310px) {
+	.buttons {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
