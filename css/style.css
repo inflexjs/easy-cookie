@@ -21,7 +21,7 @@ body {
 	bottom: -100px;
 	transform: translate(-50%);
 
-	background: #FFF0C6;
+	background: #fff0c6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
@@ -29,7 +29,14 @@ body {
 .modal__cookie-bottom-active {
 	bottom: 25px;
 	animation-duration: 2s;
-	animation-name: slime;
+	animation-name: slimeShow;
+	animation-timing-function: ease-in-out;
+}
+
+.modal__cookie-bottom-accepted {
+	bottom: -100px;
+	animation-duration: 2s;
+	animation-name: slimeHide;
 	animation-timing-function: ease-in-out;
 }
 
@@ -46,7 +53,7 @@ body {
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 19px;
-	color: #AA7758;
+	color: #aa7758;
 	margin-right: 15px;
 }
 
@@ -54,10 +61,10 @@ body {
 	margin: 0 auto;
 	margin-bottom: 5px;
 
-	background: #FFE6A1;
+	background: #ffe6a1;
 
 	display: inline-block;
-	box-shadow: 0px 6px 0px #FFD48D;
+	box-shadow: 0px 6px 0px #ffd48d;
 	border-radius: 10px;
 	outline: none;
 	border: none;
@@ -65,7 +72,7 @@ body {
 	font-weight: 800;
 	font-size: 18px;
 	line-height: 25px;
-	color: #AA7758;
+	color: #aa7758;
 	padding: 4px 35px;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
@@ -73,46 +80,72 @@ body {
 
 .cookie__btn:hover {
 	padding: 4px 45px;
-	background: #FEE192;
+	background: #fee192;
 	color: #886047;
-	box-shadow: 0px 6px 0px #F3C985;
+	box-shadow: 0px 6px 0px #f3c985;
 }
 
 @keyframes rotating {
-   0% {
-	transform: rotate(0deg);
-  }
-  100% {
-	transform: rotate(360deg);
-  }
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
-@keyframes slime {
-   0% {
-	bottom: -100px;
-  }
+@keyframes slimeShow {
+	0% {
+		bottom: -100px;
+	}
 
-  70% {
-	bottom: -100px;
-  }
+	70% {
+		bottom: -100px;
+	}
 
-  80% {
-	bottom: 30px;
-  }
-  90% {
-	bottom: 20px;
-  }
-  100% {
-	bottom: 25px;
-  }
+	80% {
+		bottom: 30px;
+	}
+	90% {
+		bottom: 20px;
+	}
+	100% {
+		bottom: 25px;
+	}
+}
+
+@keyframes slimeHide {
+	0% {
+		bottom: 25px;
+	}
+
+	10% {
+		bottom: 30px;
+	}
+
+	20% {
+		bottom: -100px;
+	}
+	100% {
+		bottom: -100px;
+	}
+}
+
+@media (max-width: 1600px) {
+	.cookie__btn:hover {
+		padding: 4px 35px;
+		background: #fee192;
+		color: #886047;
+		box-shadow: 0px 6px 0px #f3c985;
+	}
 }
 
 @media (max-width: 1000px) {
 	.modal__cookie-bottom {
 		width: 100%;
-	    flex-direction: column;
-	    border-radius: 0;
-	    bottom: -150%;
+		flex-direction: column;
+		border-radius: 0;
+		bottom: -150%;
 	}
 
 	.modal__cookie-bottom-active {
@@ -120,24 +153,42 @@ body {
 		animation-duration: 3s;
 	}
 
-	@keyframes slime {
-	   0% {
-		bottom: -100%;
-	  }
+	@keyframes slimeShow {
+		0% {
+			bottom: -100%;
+		}
 
-	  70% {
-		bottom: -100%;
-	  }
+		70% {
+			bottom: -100%;
+		}
 
-	  80% {
-		bottom: 20px;
-	  }
-	  90% {
-		bottom: -20px;
-	  }
-	  100% {
-		bottom: 0;
-	  }
+		80% {
+			bottom: 20px;
+		}
+		90% {
+			bottom: -20px;
+		}
+		100% {
+			bottom: 0;
+		}
+	}
+
+	@keyframes slimeHide {
+		0% {
+			bottom: 0;
+		}
+
+		10% {
+			bottom: 10px;
+		}
+
+		60% {
+			bottom: -150%;
+		}
+
+		100% {
+			bottom: -150%;
+		}
 	}
 
 	.cookie__image {
@@ -148,12 +199,12 @@ body {
 	}
 
 	.cookie__text {
-	    font-size: 14px;
-	    text-align: center;
+		font-size: 14px;
+		text-align: center;
 	}
 
 	.cookie__btn {
-	    margin-bottom: 20px;
-	    margin-top: 25px;
+		margin-bottom: 20px;
+		margin-top: 25px;
 	}
 }
