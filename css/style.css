@@ -24,11 +24,13 @@ body {
 	background: #FFF0C6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-	transition: bottom 1s ease-in-out;
 }
 
 .modal__cookie-bottom-active {
 	bottom: 25px;
+	animation-duration: 2s;
+	animation-name: slime;
+	animation-timing-function: ease-in-out;
 }
 
 .cookie__image {
@@ -85,6 +87,26 @@ body {
   }
 }
 
+@keyframes slime {
+   0% {
+	bottom: -100px;
+  }
+
+  70% {
+	bottom: -100px;
+  }
+
+  80% {
+	bottom: 30px;
+  }
+  90% {
+	bottom: 20px;
+  }
+  100% {
+	bottom: 25px;
+  }
+}
+
 @media (max-width: 1000px) {
 	.modal__cookie-bottom {
 		width: 100%;
@@ -95,6 +117,27 @@ body {
 
 	.modal__cookie-bottom-active {
 		bottom: 0;
+		animation-duration: 3s;
+	}
+
+	@keyframes slime {
+	   0% {
+		bottom: -100%;
+	  }
+
+	  70% {
+		bottom: -100%;
+	  }
+
+	  80% {
+		bottom: 20px;
+	  }
+	  90% {
+		bottom: -20px;
+	  }
+	  100% {
+		bottom: 0;
+	  }
 	}
 
 	.cookie__image {
