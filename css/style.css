@@ -68,6 +68,13 @@ body {
 	box-shadow: 0px 6px 0px #cca565;
 }
 
+.left-modal,
+.top-modal,
+.bottom-modal,
+.right-modal {
+	transition: all 0.3s ease-in-out;
+}
+
 .modal {
 	position: fixed;
 	display: flex;
@@ -77,6 +84,10 @@ body {
 	background: #fff0c6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hidden {
+	display: none;
 }
 
 .cookie-bottom {
@@ -89,14 +100,14 @@ body {
 
 .cookie-bottom--active {
 	bottom: 25px;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-name: slimeShowBottom;
 	animation-timing-function: ease-in-out;
 }
 
 .cookie-bottom--accepted {
 	bottom: -100px;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-name: slimeHideBottom;
 	animation-timing-function: ease-in-out;
 }
@@ -111,15 +122,91 @@ body {
 
 .cookie-top--active {
 	top: 25px;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-name: slimeShowTop;
 	animation-timing-function: ease-in-out;
 }
 
 .cookie-top--accepted {
 	top: -100px;
-	animation-duration: 2s;
+	animation-duration: 1s;
 	animation-name: slimeHideTop;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-right {
+	width: 300px;
+	flex-direction: column;
+	/*margin: 0 auto;*/
+	right: -150%;
+	bottom: 25px;
+	padding: 25px;
+}
+
+.cookie-right .cookie__text {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.cookie-right .cookie__image {
+	width: 100px;
+	margin: 0;
+}
+
+.cookie-right .cookie__btn {
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cookie-right--active {
+	right: 25px;
+	animation-duration: 1s;
+	animation-name: slimeShowRight;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-right--accepted {
+	right: -150%;
+	animation-duration: 1s;
+	animation-name: slimeHideRight;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-left {
+	width: 300px;
+	flex-direction: column;
+	/*margin: 0 auto;*/
+	left: -150%;
+	bottom: 25px;
+	padding: 25px;
+}
+
+.cookie-left .cookie__text {
+	text-align: center;
+	margin: 15px 0;
+}
+
+.cookie-left .cookie__image {
+	width: 100px;
+	margin: 0;
+}
+
+.cookie-left .cookie__btn {
+	margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.cookie-left--active {
+	left: 25px;
+	animation-duration: 1s;
+	animation-name: slimeShowLeft;
+	animation-timing-function: ease-in-out;
+}
+
+.cookie-left--accepted {
+	left: -150%;
+	animation-duration: 1s;
+	animation-name: slimeHideLeft;
 	animation-timing-function: ease-in-out;
 }
 
@@ -174,6 +261,80 @@ body {
 	}
 	100% {
 		transform: rotate(360deg);
+	}
+}
+
+@keyframes slimeShowLeft {
+	0% {
+		left: -150%;
+	}
+
+	50% {
+		left: -100%;
+	}
+
+	80% {
+		left: 30px;
+	}
+	90% {
+		left: 20px;
+	}
+	100% {
+		left: 25px;
+	}
+}
+
+@keyframes slimeHideLeft {
+	0% {
+		left: 25px;
+	}
+
+	10% {
+		left: 30px;
+	}
+
+	50% {
+		left: -100%;
+	}
+	100% {
+		left: -150%;
+	}
+}
+
+@keyframes slimeShowRight {
+	0% {
+		right: -150%;
+	}
+
+	50% {
+		right: -100%;
+	}
+
+	80% {
+		right: 30px;
+	}
+	90% {
+		right: 20px;
+	}
+	100% {
+		right: 25px;
+	}
+}
+
+@keyframes slimeHideRight {
+	0% {
+		right: 25px;
+	}
+
+	10% {
+		right: 30px;
+	}
+
+	50% {
+		right: -100%;
+	}
+	100% {
+		right: -150%;
 	}
 }
 
@@ -273,6 +434,13 @@ body {
 		animation-duration: 2s;
 	}
 
+	.cookie-bottom--accepted {
+		bottom: -150%;
+		animation-duration: 1s;
+		animation-name: slimeHideBottom;
+		animation-timing-function: ease-in-out;
+	}
+
 	.cookie-top {
 		width: 100%;
 		flex-direction: column;
@@ -283,6 +451,13 @@ body {
 	.cookie-top--active {
 		top: 0;
 		animation-duration: 2s;
+	}
+
+	.cookie-top--accepted {
+		top: -150%;
+		animation-duration: 1s;
+		animation-name: slimeHideTop;
+		animation-timing-function: ease-in-out;
 	}
 
 	@keyframes slimeShowBottom {
@@ -384,9 +559,22 @@ body {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	.right-modal {
+	.left-modal {
+		order: 1;
+	}
+
+	.top-modal {
+		order: 2;
+	}
+
+	.bottom-modal {
+		order: 4;
 		grid-column-start: 2;
 		grid-column-end: 3;
+	}
+
+	.right-modal {
+		order: 3;
 	}
 }
 
@@ -395,7 +583,20 @@ body {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
+	.left-modal {
+		order: 3;
+	}
+
+	.top-modal {
+		order: 1;
+	}
+
+	.bottom-modal {
+		order: 2;
+	}
+
 	.right-modal {
+		order: 4;
 		grid-column-start: auto;
 		grid-column-end: auto;
 	}
