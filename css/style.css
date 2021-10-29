@@ -62,6 +62,13 @@ body {
 	box-shadow: 0px 6px 0px #cca565;
 }
 
+.button:disabled,
+.button[disabled]{
+ 	background: #cccccc;
+	color: #666666;
+	box-shadow: 0px 6px 0px #979797;
+}
+
 .button--current {
 	background: #ffde84;
 	color: #886047;
@@ -84,6 +91,10 @@ body {
 	background: #fff0c6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.modal-mobile {
+	margin: 0 auto;
 }
 
 .hidden {
@@ -431,7 +442,7 @@ body {
 
 	.cookie-bottom--active {
 		bottom: 0;
-		animation-duration: 2s;
+		animation-duration: 1s;
 	}
 
 	.cookie-bottom--accepted {
@@ -450,7 +461,7 @@ body {
 
 	.cookie-top--active {
 		top: 0;
-		animation-duration: 2s;
+		animation-duration: 1s;
 	}
 
 	.cookie-top--accepted {

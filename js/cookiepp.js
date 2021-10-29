@@ -1,8 +1,30 @@
 let modalCookie = document.querySelector('.modal');
 let cookieAcceptBtn = document.querySelector('.cookie__btn');
 let buttons = document.querySelectorAll('.button');
+let leftBtn = document.querySelector('.left-modal');
+let rightBtn = document.querySelector('.right-modal');
+let mainWindow = document.querySelector('.main');
 
 let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)
+
+console.log(leftBtn.classList)
+
+if (isMobile && (window.innerWidth <= 620)) {
+	const disabledText = document.createElement('p')
+
+	leftBtn.disabled = true
+	rightBtn.disabled = true
+
+	disabledText.textContent = '*Некоторые кнопки не доступны на мобильной версии'
+	disabledText.style.color = '#979797'
+	disabledText.style.fontSize = '14px'
+	disabledText.style.textAlign = 'center'
+	disabledText.style.marginTop = '30px'
+	disabledText.style.padding = '0 25px'
+
+
+	mainWindow.appendChild(disabledText)
+}
 
 // let showCookie = function () {
 // 	modalCookie.classList.add('cookie-bottom--active');
@@ -43,6 +65,10 @@ for (let i = 0; i < buttons.length; i++) {
 		buttons[i].classList.toggle('button--current');
 		modalCookie.classList.add(active[i]);
 		modalCookie.classList.add(position[i]);
+
+		if (isMobile) {
+			modalCookie.classList.add('modal-mobile')
+		}
 
 		cookieAcceptBtn.addEventListener('click', () => {
 			for (let d = 0; d < active.length; d++) {
