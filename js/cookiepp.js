@@ -45,12 +45,10 @@ for (let i = 0; i < buttons.length; i++) {
 	buttons[i].addEventListener('click', function () {
 		buttons.forEach((i) => i.classList.remove('button--current'));
 
-		for (let a = 0; a < active.length; a++) {
+		for (let a = 0; a < buttons.length; a++) {
 			modalCookie.classList.remove(active[a]);
-		}
-
-		for (let p = 0; p < active.length; p++) {
-			modalCookie.classList.remove(position[p]);
+			modalCookie.classList.remove(position[a]);
+			modalCookie.classList.remove(accepted[a]);
 		}
 
 		buttons[i].classList.toggle('button--current');
@@ -60,16 +58,21 @@ for (let i = 0; i < buttons.length; i++) {
 		cookieAcceptBtn.addEventListener('click', () => {
 			for (let d = 0; d < active.length; d++) {
 				modalCookie.classList.remove(active[d]);
+				modalCookie.classList.remove(position[d]);
 				modalCookie.classList.remove(accepted[d]);
 			}
+
 			modalCookie.classList.add(accepted[i]);
+			modalCookie.classList.add(active[i]);
+			modalCookie.classList.add(position[i]);
 
 			function removeActive() {
 				modalCookie.classList.remove(accepted[i]);
 				modalCookie.classList.remove(position[i]);
+				modalCookie.classList.remove(active[i]);
 			}
 
-			setTimeout(removeActive, 1000);
+			setTimeout(removeActive, 300);
 
 			buttons.forEach((i) => i.classList.remove('button--current'));
 		});
