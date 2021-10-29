@@ -6,6 +6,7 @@ let bottomModal = document.querySelector('.bottom-modal');
 let rigthModal = document.querySelector('.right-modal');
 let buttons = document.querySelectorAll('.button');
 
+let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)
 // let showCookie = function () {
 // 	modalCookie.classList.add('cookie-bottom--active');
 // };
@@ -72,7 +73,13 @@ for (let i = 0; i < buttons.length; i++) {
 				modalCookie.classList.remove(active[i]);
 			}
 
-			setTimeout(removeActive, 300);
+			if (window.innerHeight <= 1000) {
+				setTimeout(removeActive, 400);
+				console.log('mobile')
+			} else {
+				setTimeout(removeActive, 300);
+				console.log('pc')
+			}
 
 			buttons.forEach((i) => i.classList.remove('button--current'));
 		});
