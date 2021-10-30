@@ -76,14 +76,14 @@ if (cookieStatus) {
 	cookieStatusText.textContent = 'accepted';
 	cookieStatusText.classList.add('accepted');
 } else {
-	cookieStatusText.classList.add('undefined');
-	cookieStatusText.textContent = 'undefined';
+	cookieStatusText.classList.add('none');
+	cookieStatusText.textContent = 'none';
 }
 
 cookieCleareBtn.addEventListener('click', () => {
 	deleteCookie('easycookie');
-	cookieStatusText.classList.add('undefined');
-	cookieStatusText.textContent = 'undefined';
+	cookieStatusText.classList.add('none');
+	cookieStatusText.textContent = 'none';
 	window.location.reload();
 });
 
@@ -109,8 +109,8 @@ for (let i = 0; i < buttons.length; i++) {
 
 		cookieStatusText.classList.remove('skipped');
 		cookieStatusText.classList.remove('accepted');
-		cookieStatusText.classList.add('undefined');
-		cookieStatusText.textContent = 'undefined';
+		cookieStatusText.classList.add('none');
+		cookieStatusText.textContent = 'none';
 
 		function hideModal() {
 			for (let d = 0; d < active.length; d++) {
@@ -141,14 +141,14 @@ for (let i = 0; i < buttons.length; i++) {
 			hideModal();
 			setCookie('easycookie', 'testeasycookie', 3);
 			cookieStatusText.textContent = 'accepted';
-			cookieStatusText.classList.remove('undefined');
+			cookieStatusText.classList.remove('none');
 			cookieStatusText.classList.add('accepted');
 		});
 
 		cookieCloseBtn.addEventListener('click', () => {
 			hideModal();
 			cookieStatusText.textContent = 'skipped';
-			cookieStatusText.classList.remove('undefined');
+			cookieStatusText.classList.remove('none');
 			cookieStatusText.classList.add('skipped');
 		});
 	});
