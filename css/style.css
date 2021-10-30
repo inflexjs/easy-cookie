@@ -94,6 +94,30 @@ body {
 	transition: all 0.3s ease-in-out;
 }
 
+.clear-cookie {
+	margin-top: 40px;
+	background: #cf7070;
+
+	box-shadow: 0px 6px 0px #aa5858;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 800;
+	font-size: 18px;
+	line-height: 25px;
+	color: #913a3a;
+	padding: 4px 35px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.clear-cookie:hover {
+	background: #ba5e5e;
+	color: #7c2f2f;
+	box-shadow: 0px 6px 0px #874242;
+}
+
 .modal {
 	position: fixed;
 	display: flex;
@@ -103,10 +127,6 @@ body {
 	background: #fff0c6;
 	border-radius: 20px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
-}
-
-.modal-mobile {
-	margin: 0 auto;
 }
 
 .hidden {
@@ -666,6 +686,20 @@ body {
 		order: 4;
 		grid-column-start: auto;
 		grid-column-end: auto;
+	}
+}
+
+@media (max-width: 400px) {
+	.logo {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		line-height: 100%;
+	}
+
+	.title {
+		margin-top: 20px;
 	}
 }
 
