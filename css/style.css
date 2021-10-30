@@ -509,6 +509,29 @@ body {
 		animation-timing-function: ease-in-out;
 	}
 
+	.cookie__image {
+		margin-top: 10px;
+		margin-bottom: 15px;
+		margin-right: 0;
+		width: 70px;
+	}
+
+	.cookie__text {
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.modal__accept-btn {
+		margin-bottom: 20px;
+		margin-top: 25px;
+	}
+
+	.modal__close-btn {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+	}
+
 	@keyframes slimeShowBottom {
 		0% {
 			bottom: -100%;
@@ -583,23 +606,6 @@ body {
 		100% {
 			top: -150%;
 		}
-	}
-
-	.cookie__image {
-		margin-top: 10px;
-		margin-bottom: 15px;
-		margin-right: 0;
-		width: 70px;
-	}
-
-	.cookie__text {
-		font-size: 14px;
-		text-align: center;
-	}
-
-	.modal__accept-btn {
-		margin-bottom: 20px;
-		margin-top: 25px;
 	}
 }
 
