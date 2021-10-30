@@ -24,6 +24,18 @@ body {
 	color: #aa7758;
 }
 
+.skipped {
+	color: #aa5858;
+}
+
+.accepted {
+	color: #81aa58;
+}
+
+.undefined {
+	color: #9b9b9b;
+}
+
 .title {
 	color: #aa7758;
 	margin-bottom: 20px;

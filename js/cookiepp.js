@@ -1,6 +1,7 @@
 let cookieModal = document.querySelector('.modal');
 let cookieAcceptBtn = document.querySelector('.modal__accept-btn');
 let cookieCloseBtn = document.querySelector('.modal__close-btn');
+let cookieStatus = document.querySelector('.cookie-status');
 let buttons = document.querySelectorAll('.button');
 let leftBtn = document.querySelector('.left-modal');
 let rightBtn = document.querySelector('.right-modal');
@@ -38,14 +39,14 @@ if (isMobile && window.innerWidth <= 620) {
 // };
 
 for (let i = 0; i < buttons.length; i++) {
+	let position = ['cookie-left', 'cookie-top', 'cookie-bottom', 'cookie-right'];
+
 	let active = [
 		'cookie-left--active',
 		'cookie-top--active',
 		'cookie-bottom--active',
 		'cookie-right--active',
 	];
-
-	let position = ['cookie-left', 'cookie-top', 'cookie-bottom', 'cookie-right'];
 
 	let accepted = [
 		'cookie-left--accepted',
@@ -56,6 +57,11 @@ for (let i = 0; i < buttons.length; i++) {
 
 	buttons[i].addEventListener('click', function () {
 		buttons.forEach((i) => i.classList.remove('button--current'));
+
+		cookieStatus.classList.remove('skipped');
+		cookieStatus.classList.remove('accepted');
+		cookieStatus.classList.add('undefined');
+		cookieStatus.textContent = 'undefined';
 
 		function hideModal() {
 			for (let d = 0; d < active.length; d++) {
@@ -88,10 +94,16 @@ for (let i = 0; i < buttons.length; i++) {
 
 		cookieAcceptBtn.addEventListener('click', () => {
 			hideModal();
+			cookieStatus.textContent = 'accepted';
+			cookieStatus.classList.remove('undefined');
+			cookieStatus.classList.add('accepted');
 		});
 
 		cookieCloseBtn.addEventListener('click', () => {
 			hideModal();
+			cookieStatus.textContent = 'skipped';
+			cookieStatus.classList.remove('undefined');
+			cookieStatus.classList.add('skipped');
 		});
 	});
 }
