@@ -63,8 +63,8 @@ body {
 }
 
 .button:disabled,
-.button[disabled]{
- 	background: #cccccc;
+.button[disabled] {
+	background: #cccccc;
 	color: #666666;
 	box-shadow: 0px 6px 0px #979797;
 }
@@ -154,21 +154,6 @@ body {
 	padding: 25px;
 }
 
-.cookie-right .cookie__text {
-	text-align: center;
-	margin: 15px 0;
-}
-
-.cookie-right .cookie__image {
-	width: 100px;
-	margin: 0;
-}
-
-.cookie-right .cookie__btn {
-	margin-bottom: 10px;
-    margin-top: 10px;
-}
-
 .cookie-right--active {
 	right: 25px;
 	animation-duration: 1s;
@@ -192,19 +177,22 @@ body {
 	padding: 25px;
 }
 
-.cookie-left .cookie__text {
+.cookie-left .cookie__text,
+.cookie-right .cookie__text {
 	text-align: center;
 	margin: 15px 0;
 }
 
-.cookie-left .cookie__image {
+.cookie-left .cookie__image,
+.cookie-right .cookie__image {
 	width: 100px;
 	margin: 0;
 }
 
-.cookie-left .cookie__btn {
+.cookie-left .modal__accept-btn,
+.cookie-right .modal__accept-btn {
 	margin-bottom: 10px;
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .cookie-left--active {
@@ -238,7 +226,7 @@ body {
 	margin-right: 15px;
 }
 
-.cookie__btn {
+.modal__accept-btn {
 	margin: 0 auto;
 	margin-bottom: 5px;
 
@@ -259,7 +247,7 @@ body {
 	transition: all 0.3s ease-in-out;
 }
 
-.cookie__btn:hover {
+.modal__accept-btn:hover {
 	padding: 4px 45px;
 	background: #fee192;
 	color: #886047;
@@ -277,26 +265,29 @@ body {
 	margin-left: 30px;
 }
 
-.modal__close-btn:hover .close::after,
-.modal__close-btn:hover .close::before {
-	top: 10px;
+.cookie-left .modal__close-btn,
+.cookie-right .modal__close-btn {
+	position: absolute;
+	top: 15px;
+	right: 15px;
 }
 
 .close {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .close::after,
 .close::before {
 	content: '';
-	top: 12px;
-	left: 5px;
 	position: absolute;
 	width: 20px;
 	height: 4px;
 	border-radius: 2px;
-	background-color: #AA7758;
+	background-color: #aa7758;
 	transition: all 0.1s ease-in-out;
 }
 
@@ -466,11 +457,16 @@ body {
 }
 
 @media (max-width: 1600px) {
-	.cookie__btn:hover {
+	.modal__accept-btn:hover {
 		padding: 4px 35px;
 		background: #fee192;
 		color: #886047;
 		box-shadow: 0px 6px 0px #f3c985;
+	}
+
+	.cookie-left .modal__accept-btn:hover,
+	.cookie-right .modal__accept-btn:hover {
+		padding: 4px 45px;
 	}
 }
 
@@ -601,7 +597,7 @@ body {
 		text-align: center;
 	}
 
-	.cookie__btn {
+	.modal__accept-btn {
 		margin-bottom: 20px;
 		margin-top: 25px;
 	}
